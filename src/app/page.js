@@ -56,7 +56,19 @@ export default function Home() {
     if (!localStorage) return;
     setFormInput(localStorage.formInput);
     // setCurrentStep(localStorage.currentStep);
-  }, []);
+
+
+
+    // if (currentStep >= steps.length - 1) {
+    //   setCompleted(true);
+    //   clearLocalStorage(); // Clear localStorage on completion
+    //   resetForm(); // Reset form state
+    //   return;
+    // }
+  },
+  
+  
+  []);
 
   const backStep = () => {
     setCurrentStep(currentStep - 1);

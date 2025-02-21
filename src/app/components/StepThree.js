@@ -48,6 +48,7 @@ export const StepThree = ({
     if (!hasError) {
       console.log(1);
       nextStep();
+      localStorage.clear();
     }
   };
 

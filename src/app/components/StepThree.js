@@ -32,7 +32,6 @@ export const StepThree = ({
           bhday: "18 Насанд  хүрсэн байх ёстой.",
         }));
       }
-      
     }
 
     if (!formInput.profile) {
@@ -42,33 +41,24 @@ export const StepThree = ({
         ...prev,
         profile: " Энэ талбар хоосон байна.",
       }));
-    } else {
-      setFormError((prev) => ({
-        ...prev,
-        profile: "",
-      }));
     }
 
+    console.log({ hasError, formError, formInput });
+
     if (!hasError) {
+      console.log(1);
       nextStep();
     }
   };
 
   const imageRef = useRef();
 
-  const [url, setUrl] = useState("");
   const imageHandler = (event) => {
     setFormInput((prev) => ({
       ...prev,
-      [event.target.value]: event.target.files[0],
+      profile: window.URL.createObjectURL(event.target.files[0]),
     }));
-    setUrl(window.URL.createObjectURL(event.target.files[0]));
   };
-
-  // const onChange = (event) => {
-  //   setFormInput((prev) => ({...prev, [event.target.name]: event.target.value}))
-  //   seturl(window.URL.createObjectURL(event.target.files[0]))
-  // }
 
   const uploadImage = () => {
     imageRef.current.click();
@@ -108,13 +98,19 @@ export const StepThree = ({
               className="absolute inset-0 opacity-0"
               type="file"
               ref={imageRef}
-              value={formInput.profile}
             />
             {formError.profile && (
               <p className="text-red-600 mb-2 ">{formError.profile}</p>
             )}
 
-            {url ? <img className="bg-cover absolute inset-0" src={url} /> : ""}
+            {formInput.profile ? (
+              <img
+                className="bg-cover absolute inset-0"
+                src={formInput.profile}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

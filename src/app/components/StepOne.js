@@ -17,10 +17,11 @@ export const StepOne = ({
         ...prev,
         firstName: " Энэ талбар хоосон байна.",
       }));
-    }else{
+    } else {
       setFormError((prev) => ({
         ...prev,
-        firstName: "",}));
+        firstName: "",
+      }));
     }
 
     if (!formInput.lastName) {
@@ -68,7 +69,7 @@ export const StepOne = ({
             Last name<span className="text-red-400">*</span>
           </p>
           <input
-          value={formInput.lastName}
+            value={formInput.lastName}
             onChange={onChange}
             name="lastName"
             placeholder="Lastname"
@@ -80,11 +81,11 @@ export const StepOne = ({
           )}
         </div>
         <div>
-          <p className="text-[#334155] text-[14px] font-semibold ">
+          <p className="text-[#334155] text-[14px] font-semibold mt-3 ">
             Username<span className="text-red-400">*</span>
           </p>
           <input
-          value={formInput.userName}
+            value={formInput.userName}
             onChange={onChange}
             name="userName"
             placeholder="username"

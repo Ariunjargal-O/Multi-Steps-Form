@@ -29,7 +29,7 @@ export const StepThree = ({
         hasError = true;
         setFormError((prev) => ({
           ...prev,
-          bhday: "18-аас дээш буюу Насанд хүрсэн байх ёстой.",
+          bhday: "18-аас дээш буюу насанд хүрсэн байх ёстой.",
         }));
       }
     }
